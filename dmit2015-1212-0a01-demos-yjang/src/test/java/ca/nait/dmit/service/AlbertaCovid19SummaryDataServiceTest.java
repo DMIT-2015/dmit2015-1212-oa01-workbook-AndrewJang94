@@ -11,6 +11,6 @@ class AlbertaCovid19SummaryDataServiceTest {
     @Test
     void shouldContainNRecords() throws IOException {
         AlbertaCovid19SummaryDataService dataService = new AlbertaCovid19SummaryDataService();
-        assertEquals(692, dataService.getDataList().size());
+        assertEquals(484400, dataService.getDataList().size());
     }
 }

@@ -15,20 +15,26 @@ import java.util.List;
 public class AlbertaCovid19SummaryDataService {
 
     @Getter
-    private List<AlbertaCovid19SummaryData> dataList = new ArrayList<>();
+    private List<AlbertaCovid19SummaryData> dataList;
 
     public AlbertaCovid19SummaryDataService() throws IOException {
-        try (var reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/Data/covid-19-alberta-statistics-summary-data.csv"))))  {
+        dataList = loadCsvData();
+    }
+
+    private List<AlbertaCovid19SummaryData> loadCsvData() throws IOException {
+        List<AlbertaCovid19SummaryData> dataList = new ArrayList<>();
+
+        try (var reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/Data/covid-19-alberta-statistics-summary-data.csv")))) {
             final var delimiter = ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
             String line;
             // Skip the first line as it contains column headings
             reader.readLine();
 
             var dataFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 String[] values = line.split(delimiter, -1);
                 AlbertaCovid19SummaryData lineData = new AlbertaCovid19SummaryData();
-                lineData.setId(Integer.parseInt(values[0].replaceAll("\"","")));
+                lineData.setId(Integer.parseInt(values[0].replaceAll("\"", "")));
                 lineData.setDateReported(LocalDate.parse(values[1], dataFormatter));
                 lineData.setNumberOfLabTests(Integer.parseInt(values[2]));
                 lineData.setCumulativeNumberOfLabTests(Integer.parseInt(values[3]));
@@ -43,10 +49,11 @@ public class AlbertaCovid19SummaryDataService {
                 lineData.setPercentPositivity(Double.parseDouble(values[12]));
 
                 dataList.add(lineData);
-
             }
         }
+        return dataList;
     }
+
 
 
 
