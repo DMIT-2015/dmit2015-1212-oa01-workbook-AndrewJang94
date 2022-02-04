@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="dmit2015-1212-0a01-demos-yjang:war exploded">
+    <output-path>$PROJECT_DIR$/dmit2015-1212-0a01-demos-yjang/target/dmit2015-1212-0a01-demos-yjang</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>dmit2015-1212-0a01-demos-yjang</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="dmit2015-1212-0a01-demos-yjang" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/dmit2015-1212-0a01-demos-yjang/target/dmit2015-1212-0a01-demos-yjang/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="dmit2015-1212-0a01-demos-yjang/web/Web" />
+    </root>
+  </artifact>
+</component>
