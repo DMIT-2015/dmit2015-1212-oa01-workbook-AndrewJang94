@@ -60,5 +60,30 @@ public class EdmontonPropertyAssessment implements Serializable {
         createdDateTime = LocalDateTime.now();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (!(o instanceof EdmontonPropertyAssessment)) {
+            return false;
+        }
+
+        EdmontonPropertyAssessment other = (EdmontonPropertyAssessment) o;
+        return accountNumber != null &&
+                Objects.equals(getAccountNumber(), other.getAccountNumber());
+    }
+
+    /**
+     * https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
+     */
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
+
+
 
 }

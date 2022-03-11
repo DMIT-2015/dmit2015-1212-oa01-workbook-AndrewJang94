@@ -1,3 +1,10 @@
+### download CSV
+POST http://localhost:8080/dmit2015-assignment04-yjang/webapi/batch-jobs/create
+
+### check download CSV
+GET http://localhost:8080/dmit2015-assignment04-yjang/webapi/batch-jobs/1
+
+
 ### Start a new batch job
 POST http://localhost:8080/dmit2015-assignment04-yjang/webapi/batch-jobs/job
 

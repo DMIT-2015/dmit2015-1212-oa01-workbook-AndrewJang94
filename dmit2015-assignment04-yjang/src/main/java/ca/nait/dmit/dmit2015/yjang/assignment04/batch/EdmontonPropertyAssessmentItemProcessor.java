@@ -15,6 +15,7 @@ public class EdmontonPropertyAssessmentItemProcessor implements ItemProcessor {
         String line = (String) item;
         final String delimiter = ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
         String[] tokens = line.split(delimiter, -1);    // The -1 limit allows for any number of fields and not discard trailing empty fields);
+
         EdmontonPropertyAssessment currentEdmontonPropertyAssessment = new EdmontonPropertyAssessment();
         currentEdmontonPropertyAssessment.setAccountNumber(tokens[0]);
         currentEdmontonPropertyAssessment.setSuite(tokens[1]);

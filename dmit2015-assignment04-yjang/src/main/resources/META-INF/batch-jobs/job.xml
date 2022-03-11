@@ -12,7 +12,7 @@
     </step>
 
     <step id="importDataStep">
-        <chunk item-count="50">
+        <chunk item-count="10">
             <reader ref="edmontonPropertyAssessmentItemReader">
                 <properties>
                     <property name="input_file"
