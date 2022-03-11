@@ -1,0 +1,17 @@
+### Start a new batch job
+POST http://localhost:8080/dmit2015-assignment04-yjang/webapi/batch-jobs/job
+
+### Check the status of batch job 1
+GET http://localhost:8080/dmit2015-assignment04-yjang/webapi/batch-jobs/1
+
+### Get the EdmontonPropertyAssessment by longitude -113.35023446875456, latitude 53.47287377003312, distance 50
+GET http://localhost:8080/dmit2015-assignment04-yjang/webapi/EdmontonPropertyAssessments/query/within?longitude=-113.35023446875456&latitude=53.47287377003312&distance=50
+
+### Get the EdmontonPropertyAssessment by byHouseNumberAndStreetName
+GET http://localhost:8080/dmit2015-assignment04-yjang/webapi/EdmontonPropertyAssessments/query/byHouseNumberAndStreetName?houseNumber=523&streetName=37%20AVENUE%20NW
+
+### Get the EdmontonPropertyAssessment by byNeighbourhood
+GET http://localhost:8080/dmit2015-assignment04-yourname/webapi/EdmontonPropertyAssessments/query/byNeighbourhood?neighbourhood=RUTHERFOR
+
+### Get the EdmontonPropertyAssessment by byNeighbourhoodAndAssessedValueRange
+GET http://localhost:8080/dmit2015-assignment04-yourname/webapi/EdmontonPropertyAssessments/query/byNeighbourhoodAndAssessedValueRange?neighbourhood=RUTHERFORD&minValue=350000&maxValue=450000
