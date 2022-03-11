@@ -76,4 +76,23 @@ WHERE distance(p.pointLocation, :pointValue) <= :distanceCentralAngleDegreesValu
         return optionalSingleResult;
     }
 
+    public Optional<EdmontonPropertyAssessment> ByNeighbourhood(
+            String neighbourhood
+    ) {
+        Optional<EdmontonPropertyAssessment> optionalSingleResult = Optional.empty();
+        List<EdmontonPropertyAssessment> queryResultList = getEntityManager()
+                .createQuery("""
+                        SELECT p
+                        FROM EdmontonPropertyAssessment p
+                        WHERE p.neighbourhood = :neighbourhoodName
+                        """)
+                .setParameter("neighbourhoodName", neighbourhood)
+                .getResultList();
+        if (queryResultList.size() > 0) {
+            optionalSingleResult = Optional.of(queryResultList.get(0));
+        }
+
+        return optionalSingleResult;
+    }
+
 }

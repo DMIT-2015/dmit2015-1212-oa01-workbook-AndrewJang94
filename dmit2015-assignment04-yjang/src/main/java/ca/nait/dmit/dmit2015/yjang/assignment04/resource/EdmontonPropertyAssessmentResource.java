@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @ApplicationScoped
-@Path("EdmontonPropertyAssessment")                    // All methods of this class are associated this URL path
+@Path("EdmontonPropertyAssessments")                    // All methods of this class are associated this URL path
 @Consumes(MediaType.APPLICATION_JSON)    // All methods this class accept only JSON format data
 @Produces(MediaType.APPLICATION_JSON)    // All methods returns data that has been converted to JSON format
 public class EdmontonPropertyAssessmentResource {
@@ -39,6 +39,15 @@ public class EdmontonPropertyAssessmentResource {
             @QueryParam("streetName") String streetName) {
         EdmontonPropertyAssessment querySingleResult = _edmontonPropertyAssessmentRepository
                 .findByHouseNumberAndStreetName(houseNumber, streetName)
+                .orElseThrow(NotFoundException::new);
+        return Response.ok(querySingleResult).build();
+    }
+
+    @GET
+    @Path("/query/byNeighbourhood")
+    public Response byNeighbourhood(
+            @QueryParam("neighbourhood") String neighbourhood) {
+        EdmontonPropertyAssessment querySingleResult = _edmontonPropertyAssessmentRepository.ByNeighbourhood(neighbourhood)
                 .orElseThrow(NotFoundException::new);
         return Response.ok(querySingleResult).build();
     }

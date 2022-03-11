@@ -231,6 +231,7 @@ public abstract class AbstractJpaRepository<E extends Serializable, ID> {
         _entityManager.getEntityManagerFactory().getCache().evictAll();
     }
 
+
     /**
      * Return the entity manager interface used to interact with the persistence context.
      *
